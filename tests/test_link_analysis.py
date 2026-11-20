@@ -137,6 +137,34 @@ def test_rejects_ungrounded_service_quote():
         llm_service.validate_result(model_result(), {"page_1": "Unrelated information"})
 
 
+def test_large_page_uses_bounded_html_prefix(monkeypatch):
+    html = b"<main><p>Northstar Bike Workshop offers bicycle tune-ups and brake repair.</p></main>"
+    cap = len(html) + 16
+
+    class LargePage(httpx.AsyncByteStream):
+        async def __aiter__(self):
+            yield html
+            yield b" " * cap
+            pytest.fail("The extractor kept reading after the byte limit")
+
+    def respond(request):
+        return httpx.Response(
+            200, headers={"content-type": "text/html"}, stream=LargePage()
+        )
+
+    original_client = httpx.AsyncClient
+    monkeypatch.setattr(website_extractor, "MAX_BYTES", cap)
+    monkeypatch.setattr(website_extractor, "resolve_public", AsyncMock(return_value=["93.184.216.34"]))
+    monkeypatch.setattr(
+        website_extractor.httpx, "AsyncClient",
+        lambda **kwargs: original_client(transport=httpx.MockTransport(respond), **kwargs),
+    )
+
+    pages = asyncio.run(website_extractor.extract_website("https://example.com/"))
+    assert len(pages) == 1
+    assert "bicycle tune-ups and brake repair" in pages[0].text
+
+
 def test_application_serves_form_and_assets():
     page = request("GET", "/")
     assert page.status_code == 200

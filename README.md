@@ -61,7 +61,7 @@ The response includes brand details, source URLs, and the five analysis sections
 
 ## How it works
 
-The app fetches the submitted page and up to two relevant same-origin pages. It extracts metadata and readable HTML, then sends bounded excerpts to the configured model. It validates the response schema, search-platform coverage, and quoted service evidence. The fetcher checks redirects and destination addresses and blocks private-network access. Sites that require sign-in, JavaScript rendering, or browser interaction may return limited data or a readable error.
+The app fetches the submitted page and up to two relevant same-origin pages. It reads up to 4 MB of HTML per page and can analyze readable content from the beginning of larger pages. It extracts metadata and readable text, then sends bounded excerpts to the configured model. It validates the response schema, search-platform coverage, and quoted service evidence. The fetcher checks redirects and destination addresses and blocks private-network access. Sites that require sign-in, JavaScript rendering, or browser interaction may return limited data or a readable error.
 
 ## LLM comparison
 

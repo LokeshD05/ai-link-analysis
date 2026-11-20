@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 
 from app.utils.validators import UnsafeURL, resolve_public
 
-MAX_BYTES = 1_000_000
+MAX_BYTES = 4_000_000
 PAGE_HINT = re.compile(r"service|product|solution|about|industr|what-we-do|pricing", re.I)
 
 
@@ -54,9 +54,9 @@ async def fetch(url: httpx.URL) -> tuple[httpx.URL, bytes]:
                                 raise WebsiteUnavailable("The website requires unsupported content encoding.")
                             body = bytearray()
                             async for chunk in response.aiter_raw():
-                                body.extend(chunk)
-                                if len(body) > MAX_BYTES:
-                                    raise WebsiteUnavailable("The website page exceeds the size limit.")
+                                body.extend(chunk[: MAX_BYTES - len(body)])
+                                if len(body) == MAX_BYTES:
+                                    break
                             return url, bytes(body)
                 except (httpx.ConnectError, httpx.ConnectTimeout):
                     if address == addresses[-1]:
