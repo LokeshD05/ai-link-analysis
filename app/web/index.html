@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Analyze a public website for brand, competitor, search, SEO, and audience insights.">
+  <title>Website Analysis</title>
+  <link rel="stylesheet" href="/assets/analysis.css">
+  <script src="/assets/analysis.js" defer></script>
+</head>
+<body>
+  <main>
+    <header class="intro">
+      <h1>Website analysis</h1>
+      <p>Explore a website's brand, competitors, services, SEO, and target audience.</p>
+    </header>
+    <form id="analysis-form">
+      <label for="website-url">Website URL</label>
+      <div class="form-row">
+        <input type="text" id="website-url" name="url" inputmode="url" autocomplete="url" placeholder="https://example.com" required maxlength="2083">
+        <button id="analyze" type="submit">Analyze website</button>
+      </div>
+      <p id="status" role="status" aria-live="polite" hidden></p>
+      <p id="error" role="alert" hidden></p>
+    </form>
+    <section id="results" aria-labelledby="results-title" hidden>
+      <div class="results-header">
+        <h2 id="results-title" tabindex="-1">Analysis result</h2>
+        <button type="button" class="secondary" id="download">Download JSON</button>
+      </div>
+      <div id="report"></div>
+    </section>
+  </main>
+</body>
+</html>

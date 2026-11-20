@@ -1,0 +1,53 @@
+{
+  "success": true,
+  "website": "https://example.com/",
+  "sources": {"page_1": "https://example.com/"},
+  "competitor_basis": "ai_generated_suggestions",
+  "brand": {
+    "name": "Northstar Bike Workshop",
+    "category": "Bicycle repair",
+    "summary": "An independent bicycle workshop serving commuters and recreational cyclists in Pune.",
+    "products_and_services": ["Bicycle tune-ups", "Brake repairs"]
+  },
+  "analysis": {
+    "competitor_analysis": {
+      "brand_overview": "A local workshop focused on keeping everyday bikes roadworthy.",
+      "target_market": "Commuters and leisure cyclists in Pune",
+      "competitors": [],
+      "strengths": ["Focus on routine repairs for everyday cyclists"],
+      "opportunities": ["Publish turnaround estimates and explain what a tune-up includes"]
+    },
+    "target_search_queries": [
+      {"query": "bicycle tune-up Pune", "platforms": ["Google"], "intent": "Local service search", "business_relevance": "Matches the workshop's tune-up service", "target_audience": "Pune cyclists"},
+      {"query": "Pune cycling group bike repair recommendations", "platforms": ["Facebook"], "intent": "Community recommendations", "business_relevance": "Connects riders with local repair options", "target_audience": "Local cycling group members"},
+      {"query": "bicycle brake repair Pune", "platforms": ["Instagram"], "intent": "Local workshop discovery", "business_relevance": "Matches brake repair content", "target_audience": "Recreational cyclists"},
+      {"query": "Pune bike servicing for cycle commuters", "platforms": ["LinkedIn"], "intent": "Commute planning", "business_relevance": "Matches routine maintenance needs", "target_audience": "Office commuters"},
+      {"query": "where to get a bicycle fixed in Pune", "platforms": ["X"], "intent": "Local recommendations", "business_relevance": "Matches workshop repair services", "target_audience": "Cyclists with a mechanical problem"}
+    ],
+    "seo_improvements": {
+      "primary_keyword": "bicycle repair Pune",
+      "secondary_keywords": ["bike tune-up Pune", "cycle brake repair"],
+      "long_tail_keywords": ["where to get bicycle brakes repaired in Pune"],
+      "business_keywords": ["independent bicycle workshop"],
+      "recommended_title": "Bicycle Repair in Pune | Northstar Bike Workshop",
+      "title_structure": "Service and city followed by the workshop name",
+      "meta_description": "Get your bicycle tuned up or your brakes repaired at Northstar Bike Workshop in Pune.",
+      "supporting_content": ["Tune-up service page", "FAQ on repairs and turnaround times"]
+    },
+    "top_services": [
+      {"name": "Bicycle tune-ups", "description": "Routine bicycle maintenance.", "target_industry": "Cycling", "target_customer": "Daily riders", "main_benefit": "A more reliable ride", "basis": "website", "evidence_id": "page_1", "evidence_excerpt": "Bicycle tune-ups and brake repairs in Pune."},
+      {"name": "Brake repairs", "description": "Repair bicycle braking components.", "target_industry": "Cycling", "target_customer": "Riders experiencing braking problems", "main_benefit": "Restores reliable braking", "basis": "website", "evidence_id": "page_1", "evidence_excerpt": "Bicycle tune-ups and brake repairs in Pune."}
+    ],
+    "target_audience": {
+      "primary_audience": ["Bicycle commuters"],
+      "secondary_audience": ["Recreational cyclists"],
+      "industries": ["Cycling and local mobility"],
+      "business_types": [],
+      "customer_profiles": ["Riders who depend on their bicycles for daily travel"],
+      "geography": ["Pune"],
+      "customer_needs": ["Reliable braking", "Routine maintenance"],
+      "customer_interests": ["Bicycle upkeep", "Local cycling"],
+      "marketing_segments": ["Commuters seeking recurring tune-ups", "Riders with brake problems"]
+    }
+  }
+}

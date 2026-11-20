@@ -1,0 +1,14 @@
+Automated verification with fixture HTML and mocked provider responses.
+
+Command: python -m pytest -q
+
+...................                                                      [100%]
+19 passed in 4.71s
+
+Local Uvicorn smoke check on port 4001.
+GET /: HTTP 200
+GET /docs: HTTP 200
+POST /link-analysis (invalid): HTTP 422 [invalid_request]
+POST /link-analysis (https://does-not-exist.invalid/): HTTP 502 [website_unavailable]
+POST /link-analysis (https://example.com/): HTTP 502 [analysis_unavailable]
+POST /link-analysis (https://www.iana.org/): HTTP 200 [competitor_analysis, target_search_queries, seo_improvements, top_services, target_audience]
